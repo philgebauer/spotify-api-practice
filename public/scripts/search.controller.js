@@ -3,60 +3,34 @@ app.controller('SearchController', ['$http', 'Spotify', function($http, Spotify)
   const self = this;
   console.log("Search Controller Running");
 
-  var finishedQuery;
-  var returnedStuff;
-
-
-// self.call = function () {
-//   $http.get(finishedQuery)
-//   .then(function(response) {
-//       console.log(response.data);
-//   });
-// }
-//
-//
-//
-// fetch(finishedQuery)
-// .then((resp) => resp.json())
-// .then(function(data) {
-//     return returnedStuff = response.data;
-//     console.log(returnedStuff);
-//     console.log(data);
-//     console.log(response.data);
-//
-//   })
-//
-// .catch(function(error) {
-//   // If there is any error you will catch them here
-// });
-//
-// self.submit = function (query) {
-//     finishedQuery = 'https://api.spotify.com/v1/search' + '?q=' + query + '&type=album';
-//     console.log('finishedQuery ', finishedQuery);
-//     console.log(returnedStuff);
-//
-//
-//
-//   };
+  let artists = {};
+  let photos = [];
+  let urls = [];
 
   Spotify.search('Nirvana', 'artist').then(function (data) {
-  console.log(data);
-  });
+  artists = data.artists.items;
+  console.log('artists: ', artists);
+      photos = artists[0].images
+      photos.forEach(function(url){
+        urls.push(url.url);
+        console.log('url: ', url);
+      })
+
+      // console.log('photos ', photos);
+
+    });
+    // photos.forEach(function(link){
+    //   urls.push = link.url;
+    //   console.log(urls);
+    // })
+  // photos = data.artists.items.images.url;
+// });
+
+// photos.forEach(function(link){
+//   urls.push = link.url;
+//   console.log(urls);
+// })
+// });
 
 
-
-  //
-  // self.call = function () {
-  //     $http({
-  //         method: 'GET',
-  //         url: finishedQuery
-  //
-  //         },
-  //         success: function (response) {
-  //           console.log(resonse);
-  //             let j = resonse.data;
-  //             console.log(response);
-  //         }
-  //     });
-  // };
 }]);
