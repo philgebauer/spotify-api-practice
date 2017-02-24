@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 
-const LOCALPORT = 3000;
+const LOCALPORT = 3001;
 var portDecision = process.env.PORT || LOCALPORT;
 
 //Serve static files

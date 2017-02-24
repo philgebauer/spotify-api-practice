@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngMaterial','ngRoute']);
+var app = angular.module('app', ['ngMaterial','ngRoute', 'spotify']);
 
 app.config(['$routeProvider', function($routeProvider) {
   // $locationProvider.hashPrefix('');
