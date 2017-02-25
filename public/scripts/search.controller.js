@@ -6,9 +6,12 @@ app.controller('SearchController', ['$http', 'Spotify', function($http, Spotify)
   self.artists = {};
   let artistId = {};
   let urls = [];
+  var related = {}
+  var relatedInfo = {};
+  var relatedArtists = [];
 
-  self.clickMe = function () {
-  Spotify.search('Nirvana', 'artist').then(function (data) {
+  self.clickMe = function (search) {
+  Spotify.search(search, 'artist').then(function (data) {
   self.artists = data.artists.items;
   console.log('artists: ', self.artists);
       artistId.id = self.artists[0].id;
@@ -24,7 +27,19 @@ app.controller('SearchController', ['$http', 'Spotify', function($http, Spotify)
 self.secondFunction = function (){
   Spotify.getRelatedArtists(artistId.id).then(function (data) {
     console.log(data);
+    related = data.artists;
+    console.log('related ', related);
+    related.forEach(function(info){
+      relatedArtists.push({
+      'id' : info.id,
+      'name' : info.name,
+      'href' : info.href
+    });
+    console.log(relatedArtists);
+
+    })
   });
-}
+
+} 
 
 }]);
