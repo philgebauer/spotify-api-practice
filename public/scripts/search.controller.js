@@ -25,6 +25,7 @@ app.controller('SearchController', ['$http', 'Spotify', function($http, Spotify)
     // console.log('outside test', artistId.id);
 
 self.secondFunction = function (){
+  relatedArtists = [];
   Spotify.getRelatedArtists(artistId.id).then(function (data) {
     console.log(data);
     related = data.artists;
