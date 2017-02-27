@@ -12,4 +12,12 @@ app.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/search'
     });//End route
 
+
+
 }]);//End config;
+
+app.filter('spotifyEmbedUrl', function ($sce) {
+    return function(uri) {
+      return $sce.trustAsResourceUrl('https://embed.spotify.com/?uri=' + uri);
+    };
+  });

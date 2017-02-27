@@ -8,4 +8,7 @@
 
     {{artist.name}}{{artist.followers}} <img ng-src="{{artist.image}}"/>
 
+    <iframe ng-src="{{ artist.uri | spotifyEmbedUrl }}" frameborder="0" allowtransparency="true"></iframe>
+
+
 </div>
