@@ -1,3 +1,11 @@
 <h1> TYPE HERE </h1>
 <input ng-model='search.query' placeholder="type here">
 <button type='submit' ng-click="search.clickMe(search.query); search.call()"> BUTTON </button>
+
+
+
+<div ng-repeat="artist in search.relatedArtists">
+
+    {{artist.name}}{{artist.followers}}
+
+</div>

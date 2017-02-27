@@ -8,7 +8,7 @@ app.controller('SearchController', ['$http', 'Spotify', function($http, Spotify)
   let urls = [];
   var related = {}
   var relatedInfo = {};
-  var relatedArtists = [];
+  self.relatedArtists = [];
 
   self.clickMe = function (search) {
   Spotify.search(search, 'artist').then(function (data) {
@@ -31,12 +31,13 @@ self.secondFunction = function (){
     related = data.artists;
     console.log('related ', related);
     related.forEach(function(info){
-      relatedArtists.push({
+      self.relatedArtists.push({
       'id' : info.id,
       'name' : info.name,
-      'href' : info.href
+      'href' : info.href,
+      'followers' : info.followers.total
     });
-    console.table(relatedArtists);
+    console.table(self.relatedArtists);
 
     })
   });
