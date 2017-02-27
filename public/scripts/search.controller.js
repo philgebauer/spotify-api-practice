@@ -36,7 +36,7 @@ self.secondFunction = function (){
       'name' : info.name,
       'href' : info.href
     });
-    console.log(relatedArtists);
+    console.table(relatedArtists);
 
     })
   });
