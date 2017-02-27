@@ -35,7 +35,8 @@ self.secondFunction = function (){
       'id' : info.id,
       'name' : info.name,
       'href' : info.href,
-      'followers' : info.followers.total
+      'followers' : info.followers.total,
+      'image' : info.images[1].url
     });
     console.table(self.relatedArtists);
 
