@@ -1,14 +1,17 @@
-<h1> TYPE HERE </h1>
+
 <input ng-model='search.query' placeholder="type here">
-<button class="btn btn-primary" type='submit' ng-click="search.clickMe(search.query); search.call()"> BUTTON </button>
+<button class="btn btn-primary" type='submit' ng-click="search.clickMe(search.query)"> BUTTON </button>
 
 
+<div class='row'>
 
 <div ng-repeat="artist in search.relatedArtists">
 
-    {{artist.name}}{{artist.followers}} <img ng-src="{{artist.image}}"/>
+    <div class = 'col-lg-6'>
+    {{artist.name}}{{artist.followers}} <img ng-src="{{artist.image}}" width="400" height='320' />
 
-    <iframe ng-src="{{ artist.uri | spotifyEmbedUrl }}" frameborder="0" allowtransparency="true"></iframe>
+    <iframe ng-src="{{ artist.uri | spotifyEmbedUrl }}" frameborder="0" allowtransparency="true" width="400"></iframe>
+  </div>
 
-
+</div>
 </div>
